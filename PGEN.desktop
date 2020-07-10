@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Password Generator
+Comment=Nilson Vieira
+Exec=/usr/bin/pgen
+Icon=/usr/share/icons/pgen/pgen.png
+Terminal=false
+Type=Application
+Categories=Utilities;

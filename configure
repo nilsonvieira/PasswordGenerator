@@ -1,0 +1,16 @@
+#!/bin/bash
+
+apt-get install zenity -y  >> /dev/null
+
+mkdir /usr/share/icons/pgen/
+cp -rp ./pgen.png /usr/share/icons/pgen/
+
+chmod +x /usr/share/icons/pgen/
+chmod +x /usr/share/icons/pgen/*
+
+cp -rp ./PGEN.desktop /usr/share/applications/PGEN.desktop
+
+chmod +x /usr/share/applications/PGEN.desktop
+
+cp -rp ./pgen /usr/bin/
+chmod +x  pgen
