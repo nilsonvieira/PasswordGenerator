@@ -16,7 +16,7 @@ wget https://github.com/nilsonvieira/PasswordGenerator/archive/master.zip`
 # UnPack
 unzip master.zip 
 # Enter on directory
-cd master
+cd PasswordGenerator-master
 # Execute Build
 sudo ./configure
 ```
