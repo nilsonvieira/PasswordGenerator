@@ -8,4 +8,4 @@ chmod +x /usr/share/icons/pgen/*
 cp -rp ./PGEN.desktop /usr/share/applications/PGEN.desktop
 chmod +x /usr/share/applications/PGEN.desktop
 cp -rp ./pgen /usr/bin/
-chmod +x  pgen
+chmod 777  /usr/bin/pgen
