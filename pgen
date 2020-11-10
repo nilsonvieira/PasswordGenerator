@@ -8,7 +8,7 @@
 _VER=1.0
 
 check_update (){
-    _VA=`cat /usr/bin/pgen | grep _VER | cut -d'=' -f2`
+    _VA=`cat /usr/bin/pgen | grep _VER | cut -d'=' -f2 | head -1`
     _VU=`curl https://raw.githubusercontent.com/nilsonvieira/PasswordGenerator/master/version`
 
     if [[ $_VA -ne $_VU ]]; then
