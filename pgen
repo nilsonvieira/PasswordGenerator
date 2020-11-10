@@ -10,10 +10,30 @@ _VER=1.0
 _GEN=`gpg --gen-random --armor 0 9`
 # zenity --info --title="Gerador de Senhas" --text=$_GEN
 zenity --question --title="Gerador de Senhas" --text "\n$_GEN" --ok-label="Copiar" --cancel-label="Cancelar"
-if [[ $? == 0 ]];then
+if [[ $? == 0 ]]; then
     echo $_GEN | xclip -i -selection clipboard
 fi
 
 check_update (){
     _VA=`cat /usr/bin/pgen | grep _VER | cut -d'=' -f2`
+    _VU=`curl https://raw.githubusercontent.com/nilsonvieira/PasswordGenerator/master/version`
+
+    if [[ $_VA -ne $_VU ]]; then
+        zenity --question --width=300  --title="Gerador de Senhas" --text "Existem Atualizações Disponíveis. Deseja instalar agora?" --ok-label="Sim" --cancel-label="Não, Depois."
+        if [[ $? == 0 ]]; then
+            (
+            echo "10" ; sleep 1
+            cd /tmp/
+            echo "40" ; sleep 1
+            wget https://raw.githubusercontent.com/nilsonvieira/PasswordGenerator/master/pgen
+            echo "70" ; sleep 1
+            sudo mv /tmp/pgen /usr/bin/
+            echo "100" ; sleep 1
+            ) |
+            zenity --progress \
+            --title="Update" \
+            --text="Update Package Password Generator..." \
+            --percentage=0
+        fi
+    fi   
 }
