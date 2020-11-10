@@ -1,16 +1,11 @@
 #!/bin/bash
 
-apt-get install zenity -y  >> /dev/null
-
-mkdir /usr/share/icons/pgen/
+apt-get install zenity xclip -y  > /dev/null 
+mkdir /usr/share/icons/pgen/ > /dev/null 2>&1
 cp -rp ./pgen.png /usr/share/icons/pgen/
-
 chmod +x /usr/share/icons/pgen/
 chmod +x /usr/share/icons/pgen/*
-
 cp -rp ./PGEN.desktop /usr/share/applications/PGEN.desktop
-
 chmod +x /usr/share/applications/PGEN.desktop
-
 cp -rp ./pgen /usr/bin/
 chmod +x  pgen
