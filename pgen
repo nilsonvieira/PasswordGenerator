@@ -5,13 +5,13 @@
 #+------------------------------------------------------------------------------+
 # Elaborador por: Nilson Vieira                                                 |
 #+------------------------------------------------------------------------------+
-_VER=1.0
+_VER=1
 
 check_update (){
     _VA=`cat /usr/bin/pgen | grep _VER | cut -d'=' -f2 | head -1`
     _VU=`curl https://raw.githubusercontent.com/nilsonvieira/PasswordGenerator/master/version`
 
-    if [[ $_VA -ne $_VU ]]; then
+    if [[ $_VA < $_VU ]]; then
         zenity --question --width=300  --title="Gerador de Senhas" --text "Existem Atualizações Disponíveis. Deseja instalar agora?" --ok-label="Sim" --cancel-label="Não, Depois."
         if [[ $? == 0 ]]; then
             (
