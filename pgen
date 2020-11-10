@@ -7,13 +7,6 @@
 #+------------------------------------------------------------------------------+
 _VER=1.0
 
-_GEN=`gpg --gen-random --armor 0 9`
-# zenity --info --title="Gerador de Senhas" --text=$_GEN
-zenity --question --title="Gerador de Senhas" --text "\n$_GEN" --ok-label="Copiar" --cancel-label="Cancelar"
-if [[ $? == 0 ]]; then
-    echo $_GEN | xclip -i -selection clipboard
-fi
-
 check_update (){
     _VA=`cat /usr/bin/pgen | grep _VER | cut -d'=' -f2`
     _VU=`curl https://raw.githubusercontent.com/nilsonvieira/PasswordGenerator/master/version`
@@ -38,4 +31,12 @@ check_update (){
     fi   
 }
 
-check_update
+_GEN=`gpg --gen-random --armor 0 9`
+# zenity --info --title="Gerador de Senhas" --text=$_GEN
+zenity --question --title="Gerador de Senhas" --text "\n$_GEN" --ok-label="Copiar" --cancel-label="Cancelar"
+if [[ $? == 0 ]]; then
+    echo $_GEN | xclip -i -selection clipboard
+    check_update
+else
+    check_update
+fi
