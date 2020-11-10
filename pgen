@@ -26,7 +26,8 @@ check_update (){
             zenity --progress \
             --title="Update" \
             --text="Update Package Password Generator..." \
-            --percentage=0
+            --percentage=0\
+            --auto-close
         fi
     fi   
 }
